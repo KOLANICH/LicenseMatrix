@@ -27,7 +27,8 @@ class LicenseMatrix():
 		"""
 		self.licenses = self.buildLicenses()
 
-	def buildLicenses(self,
+	@classmethod
+	def buildLicenses(cls,
 	fileName: str = str(THISDIR / "license_matrix.json")) -> list[License]: #yapf: disable
 		"""Generate a list of licenses from a specified license_matrix...
 

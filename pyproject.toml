@@ -44,6 +44,18 @@ variable-naming-style ="camelCase"
 
 [tool.pylint.format]
 indent-string ="\t"
+max-line-length = 100500
+single-line-if-stmt = true
+indent-after-paren = 4
+expected-line-ending-format = "LF"
+module-naming-style = "snake_case"
+class-naming-style = "PascalCase"
+const-naming-style = "UPPER_CASE"
+function-naming-style = "camelCase"
+method-naming-style = "camelCase"
+argument-naming-style = "camelCase"
+attr-naming-style = "camelCase"
+variable-naming-style = "camelCase"
 
 [tool.pylint.master]
 ignore-patterns ="test_.*?py"
@@ -63,4 +75,6 @@ disable=[
 	"wrong-import-position",
 	"unsubscriptable-object",
 	"no-absolute-import",
+	"too-many-instance-attributes",
+	"too-many-arguments"
 ]
