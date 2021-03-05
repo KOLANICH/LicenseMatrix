@@ -1,0 +1,73 @@
+digraph G {
+	l[label="license author", shape="diamond"];
+	h[label="holder", shape="diamond"];
+	c[label="contributor", shape="diamond"];
+	u[label="user", shape="diamond"];
+	e[label="end user", shape="diamond"];
+	t[label="client", shape="diamond"];
+
+
+	l -> lhr -> h -> hcr -> c -> cur -> u -> uer -> e -> etr -> t;
+	h -> hur -> u;
+	h -> her -> e;
+	h -> htr -> t;
+	c -> ccr -> c;
+	u -> uur -> u;
+
+	h -> hccrr -> ccr [style=dashed];
+	h -> hcurr -> cur [style=dashed];
+	h -> huerr -> uer [style=dashed];
+	h -> huurr -> uur [style=dashed];
+	h -> hetrr -> etr [style=dashed];
+
+	l -> lhccrrr -> hccrr [style=dashed];
+	l -> lhcurrr -> hcurr [style=dashed];
+	l -> lhuerrr -> huerr [style=dashed];
+
+	# Colors and groups correspond to original, but are mostly bullshit.
+
+	# "musts"
+	"compensate", "virality-boundary", "give-credit", "include-copyright", "include-license", "document-install", "keep-contribution-attribution", "include-original", "document-changes", "rename-software" [color="blue"];
+
+	"use-threshold" [color="blue", shape="rectangle"];  # should be in can'ts 
+
+	"compensate" -> {hcr, hur, hcurr} [color="pink"];
+	"give-credit" -> hccrr, huerr [color="pink"];
+	"include-copyright" -> hccrr, hcurr [color="pink"];
+	"include-license" -> hccrr, hcurr [color="pink"];
+	"document-install" -> hccrr, hcurr [color="pink"];
+	"keep-contribution-attribution" -> hccrr, hcurr [color="pink"];
+	"include-original" -> hccrr, hcurr, hccrr [color="pink"];
+	"document-changes" -> hccrr, hcurr [color="pink"];
+	"rename-software" -> hccrr, hcurr [color="pink"];
+
+	"use-threshold" -> her, huerr [color="pink"];
+
+	"virality-boundary" -> hcurr, huerr, hetrr [color="pink"];
+
+	# "cans"
+	"commercial-use", "modifications", "distribution", "private-use", "patent-use", "give-warranty", "trademark-use", "relicense", "sublicense" [color="green"];
+
+	"commercial-use" -> {hetrr, huurr, huerr, hccrr, hcurr} [color="pink"];
+	
+	"modifications" -> {hccrr, hcurr} [color="pink"];
+	"distribution" -> {hccrr, hcurr, huerr} [color="pink"];
+
+	"private-use" -> {htr} [color="pink"];
+	"trademark-use" -> {hur, hcr, her} [color="pink"];
+
+	"give-warranty" -> {hur, huerr} [color="pink"];
+	"sublicense", "relicense" -> huurr, hcurr, huerr [color="pink"];
+
+	# "can'ts"
+	"disclaim-liability" [color="red"];
+	"disclaim-liability" -> {her, hur, cur, hcr};
+}
+
+
+
+
+
+
+
+
